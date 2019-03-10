@@ -1,19 +1,19 @@
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import { rotateAnimation } from '../styles/animations'
-import triangle from '../images/triangle.svg'
+import styled from "styled-components"
+import tw from "tailwind.macro"
+import { rotateAnimation } from "../styles/animations"
+import triangle from "../images/triangle.svg"
 
 export const Title = styled.h1`
   ${tw`text-4xl lg:text-4xl font-serif text-white mb-8 tracking-wide relative inline-block`};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   &:before {
-    content: '';
+    content: "";
     width: 40px;
     height: 40px;
     background: url(${triangle});
     position: absolute;
     background-size: 40px;
-    ${rotateAnimation('4s')};
+    ${rotateAnimation("4s")};
     left: -60px;
     top: 5px;
   }

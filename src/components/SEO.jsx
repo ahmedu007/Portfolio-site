@@ -1,8 +1,8 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
-import config from '../../config/website'
+import React from "react"
+import Helmet from "react-helmet"
+import PropTypes from "prop-types"
+import { graphql, StaticQuery } from "gatsby"
+import config from "../../config/website"
 
 const Head = props => {
   const {
@@ -14,7 +14,7 @@ const Head = props => {
   const title = config.siteTitle
   const description = config.siteDescription
 
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+  const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
   const homeURL = `${config.siteUrl}${realPrefix}`
   const image = `${homeURL}${config.siteLogo}`
 
@@ -23,35 +23,35 @@ const Head = props => {
   // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
 
   const schemaOrgWebPage = {
-    '@context': 'http://schema.org',
-    '@type': 'WebPage',
+    "@context": "http://schema.org",
+    "@type": "WebPage",
     url: homeURL,
     headline: config.siteHeadline,
-    inLanguage: 'en',
+    inLanguage: "en",
     mainEntityOfPage: homeURL,
     description: config.siteDescription,
     name: config.siteTitle,
     author: {
-      '@type': 'Person',
+      "@type": "Person",
       name: config.author,
     },
     copyrightHolder: {
-      '@type': 'Person',
+      "@type": "Person",
       name: config.author,
     },
-    copyrightYear: '2019',
+    copyrightYear: "2019",
     creator: {
-      '@type': 'Person',
+      "@type": "Person",
       name: config.author,
     },
     publisher: {
-      '@type': 'Person',
+      "@type": "Person",
       name: config.author,
     },
-    datePublished: '2019-01-17',
+    datePublished: "2019-01-17",
     dateModified: buildTime,
     image: {
-      '@type': 'ImageObject',
+      "@type": "ImageObject",
       url: image,
     },
   }
@@ -60,20 +60,20 @@ const Head = props => {
 
   const itemListElement = [
     {
-      '@type': 'ListItem',
+      "@type": "ListItem",
       item: {
-        '@id': homeURL,
-        name: 'Homepage',
+        "@id": homeURL,
+        name: "Homepage",
       },
       position: 1,
     },
   ]
 
   const breadcrumb = {
-    '@context': 'http://schema.org',
-    '@type': 'BreadcrumbList',
-    description: 'Breadcrumbs list',
-    name: 'Breadcrumbs',
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    description: "Breadcrumbs list",
+    name: "Breadcrumbs",
     itemListElement,
   }
 
@@ -99,7 +99,7 @@ const Head = props => {
       <meta property="og:image:alt" content={description} />
       {config.siteFBAppID && <meta property="fb:app_id" content={config.siteFBAppID} />}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={config.userTwitter ? config.userTwitter : ''} />
+      <meta name="twitter:creator" content={config.userTwitter ? config.userTwitter : ""} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />

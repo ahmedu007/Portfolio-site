@@ -32,7 +32,8 @@
       }
     ],
     "no-unused-expressions": [
-      1, {
+      1,
+      {
         "allowTaggedTemplates": true
       }
     ],
@@ -60,20 +61,20 @@
       }
     ],
     "quotes": [
-      2,
-      "single",
+      1,
+      "double",
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
       }
     ],
-    "indent": ["error", 2, {"SwitchCase": 1}],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "es5",
         "semi": false,
-        "singleQuote": true,
+        "singleQuote": false,
         "printWidth": 120
       }
     ],

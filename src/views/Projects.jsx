@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Divider, DividerMiddle } from '../elements/Dividers'
-import Content from '../elements/Content'
-import Inner from '../elements/Inner'
-import { UpDown, UpDownWide } from '../styles/animations'
-import { colors } from '../../tailwind'
-import SVG from '../components/SVG'
+import React from "react"
+import PropTypes from "prop-types"
+import { Divider, DividerMiddle } from "../elements/Dividers"
+import Content from "../elements/Content"
+import Inner from "../elements/Inner"
+import { UpDown, UpDownWide } from "../styles/animations"
+import { colors } from "../../tailwind"
+import SVG from "../components/SVG"
 
 const Projects = ({ children, offset }) => (
   <>
