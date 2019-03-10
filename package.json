@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-portfolio-cara",
-  "description": "Playful & Colorful One-Page website with Parallax effect powered by react-spring, TailwindCSS.",
+  "name": "portfolio-website",
+  "description": "Personal website built with Gatsby and React Spring, tailwind",
   "version": "3.0.0",
-  "author": "LekoArts <hello@lekoarts.de> (https://www.lekoarts.de)",
+  "author": "Umair Ahmed <umair170@hotmail.com> (https://www.umair.dev)",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
@@ -53,11 +53,11 @@
     "prettier": "^1.16.4"
   },
   "repository": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-cara",
+    "url": "https://github.com/ahmedu007/Portfolio-site",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-cara/issues"
+    "url": "https://github.com/ahmedu007/Portfolio-site/issues"
   },
-  "homepage": "https://cara.lekoarts.de"
+  "homepage": "https://www.umair.dev"
 }
