@@ -52,6 +52,12 @@ module.exports = {
     },
     /* Must be placed at the end */
     "gatsby-plugin-offline",
-    "gatsby-plugin-netlify",
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+      },
+    },
   ],
 };
