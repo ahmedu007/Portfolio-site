@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Divider, DividerMiddle } from "../elements/Dividers"
-import Content from "../elements/Content"
-import Inner from "../elements/Inner"
-import { UpDown, UpDownWide } from "../styles/animations"
-import { colors } from "../../tailwind"
-import SVG from "../components/SVG"
+import React from "react";
+import PropTypes from "prop-types";
+import { Divider, DividerMiddle } from "../elements/Dividers";
+import Content from "../elements/Content";
+import Inner from "../elements/Inner";
+import { UpDown, UpDownWide } from "../styles/animations";
+import { colors } from "../../tailwind";
+import SVG from "../components/SVG";
 
 const Projects = ({ children, offset }) => (
   <>
@@ -41,11 +41,11 @@ const Projects = ({ children, offset }) => (
       <SVG icon="hexa" width={8} stroke={colors.yellow} left="80%" top="70%" />
     </Divider>
   </>
-)
+);
 
-export default Projects
+export default Projects;
 
 Projects.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired,
-}
+};

@@ -1,17 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
-import tw from "tailwind.macro"
-import styled from "styled-components"
-import { Divider } from "../elements/Dividers"
-import Content from "../elements/Content"
-import { UpDown, UpDownWide, waveAnimation } from "../styles/animations"
-import { colors } from "../../tailwind"
-import SVG from "../components/SVG"
+import React from "react";
+import PropTypes from "prop-types";
+import tw from "tailwind.macro";
+import styled from "styled-components";
+import { Divider } from "../elements/Dividers";
+import Content from "../elements/Content";
+import { UpDown, UpDownWide, waveAnimation } from "../styles/animations";
+import { colors } from "../../tailwind";
+import SVG from "../components/SVG";
 
 const WaveWrapper = styled.div`
   ${tw`absolute pin-b w-full`};
   transform: matrix(1, 0, 0, -1, 0, 0);
-`
+`;
 
 const InnerWave = styled.div`
   ${tw`relative h-full`};
@@ -22,7 +22,7 @@ const InnerWave = styled.div`
   path {
     ${waveAnimation("20s")};
   }
-`
+`;
 
 const Contact = ({ children, offset }) => (
   <>
@@ -61,11 +61,11 @@ const Contact = ({ children, offset }) => (
       <SVG icon="hexa" width={8} stroke={colors["grey-darkest"]} left="80%" top="70%" />
     </Divider>
   </>
-)
+);
 
-export default Contact
+export default Contact;
 
 Contact.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired,
-}
+};

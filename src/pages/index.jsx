@@ -1,23 +1,23 @@
-import React from "react"
-import styled from "styled-components"
-import tw from "tailwind.macro"
-import { Parallax } from "react-spring/renderprops-addons.cjs"
+import React from "react";
+import styled from "styled-components";
+import tw from "tailwind.macro";
+import { Parallax } from "react-spring/renderprops-addons.cjs";
 
 // Components
-import Layout from "../components/Layout"
-import ProjectCard from "../components/ProjectCard"
+import Layout from "../components/Layout";
+import ProjectCard from "../components/ProjectCard";
 
 // Elements
-import Inner from "../elements/Inner"
-import { Title, BigTitle, Subtitle } from "../elements/Titles"
+import Inner from "../elements/Inner";
+import { Title, BigTitle, Subtitle } from "../elements/Titles";
 
 // Views
-import Hero from "../views/Hero"
-import Projects from "../views/Projects"
-import About from "../views/About"
-import Contact from "../views/Contact"
+import Hero from "../views/Hero";
+import Projects from "../views/Projects";
+import About from "../views/About";
+import Contact from "../views/Contact";
 
-import avatar from "../images/avatar.png"
+import avatar from "../images/avatar.png";
 
 const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
@@ -31,31 +31,31 @@ const ProjectsWrapper = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 2rem;
   }
-`
+`;
 
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-8`};
-`
+`;
 
 const Avatar = styled.img`
   ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
-`
+`;
 
 const AboutSub = styled.span`
   ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
-`
+`;
 
 const AboutDesc = styled.p`
   ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
-`
+`;
 
 const ContactText = styled.p`
   ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
-`
+`;
 
 const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
-`
+`;
 
 const Index = () => (
   <>
@@ -67,7 +67,7 @@ const Index = () => (
         </BigTitle>
         <Subtitle>
           Currently working for{" "}
-          <a href="https://and.digital/" target="_blank">
+          <a href="https://and.digital/" target="_blank" rel="noopener">
             AND digital
           </a>{" "}
           as a Product Developer.
@@ -139,6 +139,6 @@ const Index = () => (
       </Contact>
     </Parallax>
   </>
-)
+);
 
-export default Index
+export default Index;

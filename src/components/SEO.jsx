@@ -1,22 +1,22 @@
-import React from "react"
-import Helmet from "react-helmet"
-import PropTypes from "prop-types"
-import { graphql, StaticQuery } from "gatsby"
-import config from "../../config/website"
+import React from "react";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import { graphql, StaticQuery } from "gatsby";
+import config from "../../config/website";
 
 const Head = props => {
   const {
     data: {
       site: { buildTime },
     },
-  } = props
+  } = props;
 
-  const title = config.siteTitle
-  const description = config.siteDescription
+  const title = config.siteTitle;
+  const description = config.siteDescription;
 
-  const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
-  const homeURL = `${config.siteUrl}${realPrefix}`
-  const image = `${homeURL}${config.siteLogo}`
+  const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+  const homeURL = `${config.siteUrl}${realPrefix}`;
+  const image = `${homeURL}${config.siteLogo}`;
 
   // schema.org in JSONLD format
   // https://developers.google.com/search/docs/guides/intro-structured-data
@@ -54,7 +54,7 @@ const Head = props => {
       "@type": "ImageObject",
       url: image,
     },
-  }
+  };
 
   // Initial breadcrumb list
 
@@ -67,7 +67,7 @@ const Head = props => {
       },
       position: 1,
     },
-  ]
+  ];
 
   const breadcrumb = {
     "@context": "http://schema.org",
@@ -75,7 +75,7 @@ const Head = props => {
     description: "Breadcrumbs list",
     name: "Breadcrumbs",
     itemListElement,
-  }
+  };
 
   return (
     <Helmet>
@@ -107,8 +107,8 @@ const Head = props => {
       <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
     </Helmet>
-  )
-}
+  );
+};
 
 Head.propTypes = {
   data: PropTypes.shape({
@@ -116,11 +116,11 @@ Head.propTypes = {
       buildTime: PropTypes.string.isRequired,
     }),
   }).isRequired,
-}
+};
 
-const SEO = props => <StaticQuery query={querySEO} render={data => <Head {...props} data={data} />} />
+const SEO = props => <StaticQuery query={querySEO} render={data => <Head {...props} data={data} />} />;
 
-export default SEO
+export default SEO;
 
 const querySEO = graphql`
   query SEO {
@@ -128,4 +128,4 @@ const querySEO = graphql`
       buildTime(formatString: "YYYY-MM-DD")
     }
   }
-`
+`;
