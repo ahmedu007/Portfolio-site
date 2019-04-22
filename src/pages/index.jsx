@@ -112,14 +112,14 @@ const Index = () => (
         <AboutHero>
           <Avatar src={avatar} alt="Umair Ahmed" title="Profile Picture" />
           <AboutSub>
-            The English language can not fully capture the depth and complexity of my thoughts. So I'm incorporating
-            Emoji into my speech to better express myself. Winky face.
+            My code DOESN’T work, I have no idea why. My code WORKS, I have no idea why.
           </AboutSub>
         </AboutHero>
         <AboutDesc>
-          I am a JavaScript enthusiast who loves ReactJS. I'm passionate about a great UX/UI and love building one or
-          two. I have also worked on several projects with NodeJS, GraphQL and AWS Microservices. I have been also been
-          a fulltime developer for React Native, and have fallen in love with it ever since.
+          I am a JavaScript enthusiast who loves ReactJS. I'm passionate about a great UX/UI and
+          love building one or two. I have also worked on several projects with NodeJS, GraphQL and
+          AWS Microservices. I have also been a fulltime developer for React Native, and have fallen
+          in love with it ever since.
         </AboutDesc>
       </About>
       <Contact offset={2}>
@@ -133,7 +133,7 @@ const Index = () => (
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2019 by Umair Ahmed Portfolio.{" "}
+          &copy; {new Date().getFullYear()} by Umair Ahmed Portfolio.{" "}
           <a href="https://github.com/ahmedu007/Portfolio-site">Github Repository</a>.
         </Footer>
       </Contact>
