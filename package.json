@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "description": "Personal website built with Gatsby and React Spring, tailwind",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Umair Ahmed <umair170@hotmail.com> (https://www.umair.dev)",
   "license": "MIT",
   "dependencies": {
@@ -36,7 +36,7 @@
     "developer"
   ],
   "scripts": {
-    "dev": "gatsby develop -o",
+    "start": "gatsby develop -o",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",

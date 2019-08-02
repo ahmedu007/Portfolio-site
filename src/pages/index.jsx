@@ -42,7 +42,7 @@ const Avatar = styled.img`
 `;
 
 const AboutSub = styled.span`
-  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl font-sans lg:text-3xl xl:text-4xl`};
 `;
 
 const AboutDesc = styled.p`
@@ -67,7 +67,7 @@ const Index = () => (
         </BigTitle>
         <Subtitle>
           Currently working for{" "}
-          <a href="https://and.digital/" target="_blank" rel="noopener">
+          <a href="https://and.digital/" target="_blank" rel="noopener noreferrer">
             AND digital
           </a>{" "}
           as a Product Developer.
@@ -117,9 +117,10 @@ const Index = () => (
         </AboutHero>
         <AboutDesc>
           I am a JavaScript enthusiast who loves ReactJS. I'm passionate about a great UX/UI and
-          love building one or two. I have also worked on several projects with NodeJS, GraphQL and
-          AWS Microservices. I have also been a fulltime developer for React Native, and have fallen
-          in love with it ever since.
+          love building one or two. I value testing, performance and accessibility, with a passion
+          for quality and an eye for detail. I have also worked on several projects with NodeJS,
+          GraphQL and AWS Microservices. I have also been a fulltime developer for React Native, and
+          have fallen in love with it ever since.
         </AboutDesc>
       </About>
       <Contact offset={2}>
