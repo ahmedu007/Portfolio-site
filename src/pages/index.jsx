@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
+
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
 
@@ -17,7 +19,7 @@ import Projects from "../views/Projects";
 import About from "../views/About";
 import Contact from "../views/Contact";
 
-import avatar from "../images/avatar.png";
+import avatar from "../images/avatar.jpg";
 
 const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
@@ -41,6 +43,10 @@ const Avatar = styled.img`
   ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 
+const Avatar2 = styled(Img)`
+  ${tw`rounded-full w-1/2 shadow-lg h-auto`};
+`;
+
 const AboutSub = styled.span`
   ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl font-sans lg:text-3xl xl:text-4xl`};
 `;
@@ -57,24 +63,40 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
-const Index = () => (
-  <>
-    <Layout />
-    <Parallax pages={3}>
-      <Hero offset={0}>
-        <BigTitle>
-          Hello 👋, <br /> I'm Umair.
-        </BigTitle>
-        <Subtitle>
-          Currently working for{" "}
-          <a href="https://and.digital/" target="_blank" rel="noopener noreferrer">
-            AND digital
-          </a>{" "}
-          as a Product Developer.
-          <br />I code and absolutely love what I do.
-        </Subtitle>
-      </Hero>
-      {/* <Projects offset={1}>
+export const pageQuery = graphql`
+  query {
+    profilePicture: file(relativePath: { eq: "avatar.jpg" }) {
+      childImageSharp {
+        fixed(width: 400) {
+          ...GatsbyImageSharpFixed
+        }
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+const Index = ({ data }) =>
+  console.log(data.profilePicture.childImageSharp.fluid) || (
+    <>
+      <Layout />
+      <Parallax pages={3}>
+        <Hero offset={0}>
+          <BigTitle>
+            Hello 👋, <br /> I'm Umair.
+          </BigTitle>
+          <Subtitle>
+            Currently working for{" "}
+            <a href="https://and.digital/" target="_blank" rel="noopener noreferrer">
+              AND digital
+            </a>{" "}
+            as a Product Developer.
+            <br />I code and absolutely love what I do.
+          </Subtitle>
+        </Hero>
+        {/* <Projects offset={1}>
         <Title>Projects</Title>
         <ProjectsWrapper>
           <ProjectCard
@@ -107,39 +129,50 @@ const Index = () => (
           </ProjectCard>
         </ProjectsWrapper>
       </Projects> */}
-      <About offset={1}>
-        <Title>About</Title>
-        <AboutHero>
-          <Avatar src={avatar} alt="Umair Ahmed" title="Profile Picture" />
-          <AboutSub>
-            My code DOESN’T work, I have no idea why. My code WORKS, I have no idea why.
-          </AboutSub>
-        </AboutHero>
-        <AboutDesc>
-          I am a JavaScript enthusiast who loves ReactJS. I'm passionate about a great UX/UI and
-          love building one or two. I value testing, performance and accessibility, with a passion
-          for quality and an eye for detail. I have also worked on several projects with NodeJS,
-          GraphQL and AWS Microservices. I have also been a fulltime developer for React Native, and
-          have fallen in love with it ever since.
-        </AboutDesc>
-      </About>
-      <Contact offset={2}>
-        <Inner>
-          <Title>Get in touch</Title>
-          <ContactText>
-            Say <a href="mailto:umair170@hotmail.com">Hi</a> or find me on other platforms:{" "}
-            <a href="https://twitter.com/umair170">Twitter</a>,{" "}
-            <a href="https://www.linkedin.com/in/umair-ahmed-0222b377/">LinkedIn</a> &{" "}
-            <a href="https://github.com/ahmedu007">Github</a>
-          </ContactText>
-        </Inner>
-        <Footer>
-          &copy; {new Date().getFullYear()} by Umair Ahmed Portfolio.{" "}
-          <a href="https://github.com/ahmedu007/Portfolio-site">Github Repository</a>.
-        </Footer>
-      </Contact>
-    </Parallax>
-  </>
-);
+        <About offset={1}>
+          <Title>About</Title>
+          <AboutHero>
+            {/* <Avatar
+              src={avatar}
+              alt="Umair Ahmed"
+              title="Profile Picture"
+              fluid={data.profilePicture.childImageSharp.fluid}
+            /> */}
+            <Avatar2
+              alt="Umair Ahmed"
+              title="Profile Picture"
+              fluid={data.profilePicture.childImageSharp.fluid}
+            />
+
+            <AboutSub>
+              My code DOESN’T work, I have no idea why. My code WORKS, I have no idea why.
+            </AboutSub>
+          </AboutHero>
+          <AboutDesc>
+            I am a JavaScript enthusiast who loves ReactJS. I'm passionate about a great UX/UI and
+            love building one or two. I value testing, performance and accessibility, with a passion
+            for quality and an eye for detail. I have also worked on several projects with NodeJS,
+            GraphQL and AWS Microservices. I have also been a fulltime developer for React Native,
+            and have fallen in love with it ever since.
+          </AboutDesc>
+        </About>
+        <Contact offset={2}>
+          <Inner>
+            <Title>Get in touch</Title>
+            <ContactText>
+              Say <a href="mailto:umair170@hotmail.com">Hi</a> or find me on other platforms:{" "}
+              <a href="https://twitter.com/umair170">Twitter</a>,{" "}
+              <a href="https://www.linkedin.com/in/umair-ahmed-0222b377/">LinkedIn</a> &{" "}
+              <a href="https://github.com/ahmedu007">Github</a>
+            </ContactText>
+          </Inner>
+          <Footer>
+            &copy; {new Date().getFullYear()} by Umair Ahmed Portfolio.{" "}
+            <a href="https://github.com/ahmedu007/Portfolio-site">Github Repository</a>.
+          </Footer>
+        </Contact>
+      </Parallax>
+    </>
+  );
 
 export default Index;

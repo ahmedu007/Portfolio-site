@@ -5,7 +5,7 @@ module.exports = {
 
   siteTitle: "Umair Ahmed - Product Developer Portfolio", // Navigation and Site Title
   siteTitleAlt: "Umair", // Alternative Site title for SEO
-  siteTitleShort: "Portfolio", // short_name for manifest
+  siteTitleShort: "Umair's Portfolio", // short_name for manifest
   siteHeadline: "Creating marvelous art & blazginly fast websites", // Headline for schema.org JSONLD
   siteUrl: "https://www.umair.dev", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
