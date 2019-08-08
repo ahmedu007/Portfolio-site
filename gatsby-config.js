@@ -50,14 +50,17 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-netlify",
+    // {
+    //   resolve: `gatsby-plugin-netlify`,
+    //   options: {
+    //     mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+    //     mergeCachingHeaders: true, // boolean to turn off the default caching headers
+    //     generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+
+    //   },
+    // },
     /* Must be placed at the end */
     "gatsby-plugin-offline",
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-      },
-    },
   ],
 };
