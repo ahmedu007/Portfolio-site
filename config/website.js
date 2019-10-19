@@ -10,16 +10,17 @@ module.exports = {
   siteUrl: "https://www.umair.dev", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/logo.png", // Used for SEO and manifest
-  siteDescription: "Playful & Colorful One-Page website with Parallax effect",
+  siteDescription:
+    "A Playful & Colorful One-Page portfolio website for a web developer with Parallax effect",
   author: "Umair Ahmed", // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
   userTwitter: "@umair170", // Twitter Username
-  ogSiteName: "cara", // Facebook Site Name
+  ogSiteName: "Umair - Portfolio", // Facebook Site Name
   ogLanguage: "en_US", // Facebook Language
   googleAnalyticsID: "UA-136010320-1",
 
   // Manifest and Progress color
   themeColor: tailwind.colors.orange,
-  backgroundColor: tailwind.colors.blue,
+  backgroundColor: tailwind.colors.blue
 };
