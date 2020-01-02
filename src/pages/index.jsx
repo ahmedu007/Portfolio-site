@@ -147,7 +147,7 @@ const Index = ({ data }) => (
         <Inner>
           <Title>Get in touch</Title>
           <ContactText>
-            Say <a href="mailto:umair170@hotmail.com">Hi</a> or find me on other platforms:{" "}
+            Say <a href="mailto:me@umair.dev">Hi</a> or find me on other platforms:{" "}
             <a href="https://twitter.com/umair170">Twitter</a>,{" "}
             <a href="https://www.linkedin.com/in/umair-ahmed-0222b377/">LinkedIn</a> &{" "}
             <a href="https://github.com/ahmedu007">Github</a>

@@ -42,6 +42,8 @@
     "start": "gatsby develop -o",
     "develop": "gatsby develop",
     "build": "gatsby build",
+    "deploy": "yarn build && firebase deploy",
+    "serve": "yarn build && firebase serve",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "lint:ci": "yarn lint --format junit -o results/eslint/result.xml"

@@ -62,3 +62,7 @@ bundle-stats.json
 
 tailwind.custom.css
 doc.md
+
+# Firebase
+.firebase/
+firebase-debug.log
