@@ -11,7 +11,7 @@ module.exports = {
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/logo.png", // Used for SEO and manifest
   siteDescription:
-    "A Playful & Colorful One-Page portfolio website for a web developer with Parallax effect",
+    "Umair Ahmed - A product developer portfolio website. Web developer working in a consultancy building software",
   author: "Umair Ahmed", // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
@@ -22,5 +22,5 @@ module.exports = {
 
   // Manifest and Progress color
   themeColor: tailwind.colors.orange,
-  backgroundColor: tailwind.colors.blue
+  backgroundColor: tailwind.colors.blue,
 };
