@@ -82,10 +82,10 @@ const Index = ({ data }) => (
         </BigTitle>
         <Subtitle>
           Currently working for{" "}
-          <a href="https://and.digital/" target="_blank" rel="noopener noreferrer">
-            AND digital
+          <a href="https://www.hivehome.com/" target="_blank" rel="noopener noreferrer">
+            Hive Home
           </a>{" "}
-          as a Product Developer.
+          as a Sr Mobile app engineer.
           <br />I code and absolutely love what I do.
         </Subtitle>
       </Hero>
