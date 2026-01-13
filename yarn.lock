@@ -11615,9 +11615,10 @@ typeface-cantata-one@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-cantata-one/-/typeface-cantata-one-0.0.72.tgz#ca66b8269031067b67303716324e6bda2d71c058"
   integrity sha512-FPMqyQvGwA1anWtX1SnLpGLo5pZGRWToNdHIBxPQhb2X8l5x9JiGeFJyq+hjwFx8QJy+V/ma5XFx0dpghGZCzQ==
 
-typeface-open-sans@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
+typeface-open-sans@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-1.1.13.tgz#32a09ebd7df59601e01ad81216f98ce641eeafd1"
+  integrity sha512-lVGVHvYl7UJDFB9vN8r7NHw3sVm7Rjeow6b9AeABc/J+2mDaCkmcdVtw3QZnsJW39P+xm5zeggIj9gLHYGn9Iw==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"
