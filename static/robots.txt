@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-sitemap: https://www.umair.dev/sitemap.xml

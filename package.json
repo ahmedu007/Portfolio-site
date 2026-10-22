@@ -1,70 +1,10 @@
 {
   "name": "portfolio-website",
-  "description": "Personal website built with Gatsby and React Spring, tailwind",
-  "version": "3.0.1",
-  "author": "Umair Ahmed <umair170@hotmail.com> (https://www.umair.dev)",
-  "license": "MIT",
-  "dependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
-    "gatsby": "^2.13.52",
-    "gatsby-image": "^2.2.8",
-    "gatsby-plugin-google-analytics": "^2.1.7",
-    "gatsby-plugin-manifest": "^2.2.5",
-    "gatsby-plugin-netlify": "^2.1.3",
-    "gatsby-plugin-offline": "^2.2.4",
-    "gatsby-plugin-react-helmet": "^3.1.3",
-    "gatsby-plugin-sharp": "^2.2.10",
-    "gatsby-plugin-styled-components": "^3.1.2",
-    "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-transformer-sharp": "^2.2.5",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "react-spring": "^8.0.27",
-    "styled-components": "^4.4.1",
-    "tailwind.macro": "^0.5.10",
-    "tailwindcss": "^0.7.4",
-    "typeface-cantata-one": "^0.0.72",
-    "typeface-open-sans": "^0.0.54"
-  },
-  "keywords": [
-    "gatsby",
-    "portfolio",
-    "umair",
-    "front end developer",
-    "react",
-    "frontend",
-    "developer",
-    "react spring"
-  ],
+  "version": "4.0.0",
+  "description": "Portfolio website for Umair (umair.dev) — Senior Mobile Developer",
   "scripts": {
-    "start": "gatsby develop -o",
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "deploy": "yarn build && firebase deploy",
-    "serve": "yarn build && firebase serve",
-    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
-    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
-    "lint:ci": "yarn lint --format junit -o results/eslint/result.xml"
+    "deploy": "firebase deploy --only hosting"
   },
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.15.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
-  },
-  "repository": {
-    "url": "https://github.com/ahmedu007/Portfolio-site",
-    "type": "git"
-  },
-  "bugs": {
-    "url": "https://github.com/ahmedu007/Portfolio-site/issues"
-  },
-  "homepage": "https://www.umair.dev"
+  "author": "Umair Ahmed (https://www.umair.dev)",
+  "license": "MIT"
 }
