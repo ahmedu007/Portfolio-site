@@ -6,43 +6,21 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
 
       - name: Prepare public directory
         run: |
           mkdir -p public
           cp index.html styles.css script.js favicon.svg favicon.ico public/
 
-      - name: Diagnose secret type and deploy
-        env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE }}
-        run: |
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
-            echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE is empty or not set!"
-            exit 1
-          fi
-
-          # Check if it's a JSON service account or a CI token
-          if echo "$FIREBASE_SERVICE_ACCOUNT" | python3 -c "import sys,json; json.load(sys.stdin)" 2>/dev/null; then
-            echo "Secret is a JSON service account key, using GOOGLE_APPLICATION_CREDENTIALS..."
-            echo "$FIREBASE_SERVICE_ACCOUNT" > /tmp/sa.json
-            GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json firebase deploy \
-              --only hosting \
-              --project umair-dev-site \
-              --non-interactive
-          else
-            echo "Secret appears to be a CI token (firebase login:ci), using --token..."
-            firebase deploy \
-              --only hosting \
-              --project umair-dev-site \
-              --non-interactive \
-              --token "$FIREBASE_SERVICE_ACCOUNT"
-          fi
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE }}'
+          channelId: live
+          projectId: umair-dev-site
