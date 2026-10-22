@@ -20,9 +20,14 @@ jobs:
           SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE }}
         run: |
           if [ -z "$SERVICE_ACCOUNT" ]; then
-            echo "ERROR: Secret FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE is missing or empty!"
+            echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_UMAIR_DEV_SITE is missing or empty in GitHub repository secrets!"
             exit 1
           fi
           echo "$SERVICE_ACCOUNT" > sa.json
           export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/sa.json
-          npx firebase-tools deploy --only hosting --project umair-dev-site --debug
+          OUT=$(npx firebase-tools deploy --only hosting --project umair-dev-site 2>&1) || {
+            ERR=$?
+            echo "::error::Firebase deploy failed: $OUT"
+            exit $ERR
+          }
+          echo "$OUT"
