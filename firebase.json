@@ -3,9 +3,14 @@
     "public": "public",
     "ignore": [
       "firebase.json",
-      ".firebaserc",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
