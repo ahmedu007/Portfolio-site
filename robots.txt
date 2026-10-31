@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://umair.dev/sitemap.xml
-Agentmap: https://umair.dev/.well-known/ard.json
