@@ -312,110 +312,106 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-});
-
-/* ===========================================
-   11. HIGH-PERFORMANCE GPU 3D BLOB
-   - Loaded asynchronously on idle
-   - Vertex animation runs on GPU via vertex shader
-   - Zero CPU vertex loop (0 ms TBT impact)
-   - Pauses rendering when scrolled away from hero
-   - Respects prefers-reduced-motion
-   =========================================== */
-function initThreeBlob() {
-  const canvas = document.getElementById('blob-canvas');
-  if (!canvas) return;
-
-  // Accessibility: Respect reduced motion
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    return;
-  }
-
-  function startScene() {
-    if (!window.THREE) return;
+  /* ===========================================
+     11. THREE.JS 3D BLOB
+     =========================================== */
+  function initThreeBlob() {
+    const canvas = document.getElementById('blob-canvas');
+    if (!canvas || !window.THREE) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-    // Lightweight sphere (28x28 = 841 vertices vs 4,225 in 64x64)
-    const geometry = new THREE.SphereGeometry(2, 28, 28);
+    // Create 3D wireframe sphere
+    const geometry = new THREE.SphereGeometry(2, 48, 48);
 
-    // GPU Vertex Shader: vertex displacement calculated in parallel on GPU at 0% CPU cost
-    const vertexShader = `
-      uniform float uTime;
-      void main() {
-        vec3 p = position;
-        float noise = sin(p.x * 2.0 + uTime) * 0.1
-                    + sin(p.y * 2.0 + uTime * 1.5) * 0.1
-                    + sin(p.z * 2.0 + uTime * 0.8) * 0.1;
-        p = normalize(p) * (2.0 + noise);
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-      }
-    `;
-
-    const fragmentShader = `
-      uniform vec3 uColor;
-      void main() {
-        gl_FragColor = vec4(uColor, 0.15);
-      }
-    `;
-
-    const material = new THREE.ShaderMaterial({
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader,
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x475569, // slate-600
       wireframe: true,
       transparent: true,
-      uniforms: {
-        uTime: { value: 0 },
-        uColor: { value: new THREE.Color(0x71717a) }
-      }
+      opacity: 0.22
     });
 
     const blob = new THREE.Mesh(geometry, material);
     scene.add(blob);
 
+    // Dynamic Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1.2);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
     camera.position.z = 5;
 
-    // Throttled mouse parallax
+    // Cache original vertex positions for deformation
+    const originalPositions = [];
+    const posAttribute = geometry.getAttribute('position');
+    for (let i = 0; i < posAttribute.count; i++) {
+      originalPositions.push(
+        new THREE.Vector3(
+          posAttribute.getX(i),
+          posAttribute.getY(i),
+          posAttribute.getZ(i)
+        )
+      );
+    }
+
+    // Mouse interaction
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
-    let mouseTicking = false;
 
     document.addEventListener('mousemove', (e) => {
-      if (!mouseTicking) {
-        window.requestAnimationFrame(() => {
-          mouseX = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-          mouseY = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-          targetX = mouseX * 0.5;
-          targetY = mouseY * 0.5;
-          mouseTicking = false;
-        });
-        mouseTicking = true;
-      }
+      mouseX = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+      mouseY = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
     }, { passive: true });
 
-    // Render loop with automatic visibility pause
     let isVisible = true;
-    let animId = null;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+      }, { threshold: 0.05 });
+      observer.observe(canvas);
+    }
 
-    function renderLoop() {
-      if (!isVisible) {
-        animId = null;
-        return;
-      }
+    let time = 0;
+    const v = new THREE.Vector3();
 
-      animId = requestAnimationFrame(renderLoop);
+    function animate() {
+      requestAnimationFrame(animate);
 
-      material.uniforms.uTime.value += 0.01;
+      // Skip CPU work when scrolled away from hero
+      if (!isVisible) return;
+
+      time += 0.01;
+      targetX = mouseX * 0.5;
+      targetY = mouseY * 0.5;
+
       blob.rotation.x += 0.002;
       blob.rotation.y += 0.003;
 
+      // Organic wave deformation
+      for (let i = 0; i < posAttribute.count; i++) {
+        v.copy(originalPositions[i]);
+        const noise =
+          Math.sin(v.x * 2 + time) * 0.1 +
+          Math.sin(v.y * 2 + time * 1.5) * 0.1 +
+          Math.sin(v.z * 2 + time * 0.8) * 0.1;
+
+        v.normalize().multiplyScalar(2 + noise);
+        posAttribute.setXYZ(i, v.x, v.y, v.z);
+      }
+
+      posAttribute.needsUpdate = true;
+
+      // Parallax
       camera.position.x += (targetX - camera.position.x) * 0.05;
       camera.position.y += (-targetY - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
@@ -423,51 +419,30 @@ function initThreeBlob() {
       renderer.render(scene, camera);
     }
 
-    // Pause animation when scrolled away from hero to preserve battery & CPU
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible && !animId) {
-          renderLoop();
-        } else if (!isVisible && animId) {
-          cancelAnimationFrame(animId);
-          animId = null;
-        }
-      }, { threshold: 0.05 });
-      observer.observe(canvas);
-    } else {
-      renderLoop();
-    }
+    animate();
 
-    // Debounced resize handler
-    let resizeTimer = null;
+    // Resize handler
     window.addEventListener('resize', () => {
-      if (resizeTimer) clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      }, 100);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
     }, { passive: true });
   }
 
-  // Dynamically load Three.js if not already present
+  // Initialize Three.js blob (with short retry if three.min.js is still parsing)
   if (window.THREE) {
-    startScene();
+    initThreeBlob();
   } else {
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    s.async = true;
-    s.onload = startScene;
-    document.head.appendChild(s);
+    let attempts = 0;
+    const checkInterval = setInterval(() => {
+      attempts++;
+      if (window.THREE) {
+        clearInterval(checkInterval);
+        initThreeBlob();
+      } else if (attempts > 50) {
+        clearInterval(checkInterval);
+      }
+    }, 50);
   }
-}
 
-// Start Three.js only when the browser is completely idle
-if ('requestIdleCallback' in window) {
-  requestIdleCallback(initThreeBlob, { timeout: 2500 });
-} else {
-  window.addEventListener('load', () => {
-    setTimeout(initThreeBlob, 200);
-  });
-}
+});
