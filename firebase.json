@@ -8,6 +8,13 @@
     ],
     "headers": [
       {
+        "source": "/.well-known/ard.json",
+        "headers": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      },
+      {
         "source": "/robots.txt",
         "headers": [{ "key": "Content-Type", "value": "text/plain" }]
       },
