@@ -1,0 +1,34 @@
+# Umair — Senior Mobile Developer
+
+Umair is a Senior Mobile Application Engineer with 8+ years of experience building high-performance, cross-platform mobile applications using React Native, iOS, and Android platforms.
+
+## About
+
+Umair specialises in crafting exceptional mobile experiences that serve millions of users. He has delivered 50+ apps across iOS and Android with a strong focus on clean architecture, beautiful UI/UX, and seamless user experiences.
+
+## Skills & Expertise
+
+- **React Native** — Cross-platform mobile app development with native performance (95%)
+- **JavaScript / TypeScript** — Modern ES6+, type-safe development (92%)
+- **iOS & Android** — Native modules, platform-specific optimisations (88%)
+- **State Management** — Redux, MobX, Context API, Zustand (90%)
+- **UI/UX Design** — Pixel-perfect implementations, animations, gestures (85%)
+- **Backend Integration** — REST APIs, GraphQL, Firebase, WebSockets (87%)
+- **CI/CD & Testing** — Jest, Detox, Fastlane, GitHub Actions (82%)
+- **Performance** — Profiling, optimisation, memory management (89%)
+
+## Professional Experience
+
+- **Senior Mobile Application Engineer** at Hive — May 2025 – Present (Remote, United Kingdom)
+- **Product Developer** at AND Digital — Jul 2020 – May 2025 (Leeds, Hybrid)
+- **Associate** at AND Digital — Nov 2018 – Jul 2020 (Leeds, West Yorkshire)
+- **NodeJS / ReactJS Developer** at The Distance — Mar 2018 – Nov 2018 (York, United Kingdom)
+- **Software Developer (Trainee)** at Northcoders — Aug 2017 – Feb 2018 (Manchester, United Kingdom)
+
+## Contact & Links
+
+- Website: [https://umair.dev](https://umair.dev)
+- GitHub: [https://github.com/ahmedu007](https://github.com/ahmedu007)
+- LinkedIn: [https://linkedin.com/in/umair170](https://linkedin.com/in/umair170)
+- X (Twitter): [https://x.com/umair170](https://x.com/umair170)
+- Email: [hello@umair.dev](mailto:hello@umair.dev)

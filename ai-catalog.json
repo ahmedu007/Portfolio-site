@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/ai-catalog/spec/main/schema/v1/ai-catalog.schema.json",
+  "name": "Umair — Senior Mobile Developer",
+  "description": "Portfolio of Umair, a Senior Mobile Application Engineer with 8+ years of experience in React Native, iOS, and Android development.",
+  "url": "https://umair.dev",
+  "version": "1.0.0",
+  "contact": {
+    "email": "hello@umair.dev"
+  },
+  "links": {
+    "llms_txt": "https://umair.dev/llms.txt",
+    "sitemap": "https://umair.dev/sitemap.xml"
+  },
+  "resources": [
+    {
+      "type": "page",
+      "url": "https://umair.dev/",
+      "name": "Portfolio Homepage",
+      "description": "Umair's personal portfolio site showcasing his skills, experience, and contact information."
+    }
+  ]
+}

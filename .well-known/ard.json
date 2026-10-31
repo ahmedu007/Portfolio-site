@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://agenticresourcediscovery.org/context/v1"
+  ],
+  "entries": [
+    {
+      "identifier": "urn:air:umair.dev:portfolio:homepage",
+      "displayName": "Umair — Senior Mobile Developer Portfolio",
+      "type": "application/ai-registry+json",
+      "url": "https://umair.dev/",
+      "description": "Personal portfolio of Umair, a Senior Mobile Application Engineer with 8+ years of experience building cross-platform mobile applications using React Native, iOS, and Android. Delivers apps for millions of users.",
+      "representativeQueries": [
+        "Find a senior React Native mobile developer for hire",
+        "Who is Umair and what mobile apps has he built?",
+        "Senior mobile engineer with iOS and Android experience",
+        "React Native developer portfolio UK"
+      ]
+    },
+    {
+      "identifier": "urn:air:umair.dev:resource:llms-txt",
+      "displayName": "Umair Portfolio — LLMs.txt",
+      "type": "text/markdown",
+      "url": "https://umair.dev/llms.txt",
+      "description": "Machine-readable summary of Umair's portfolio, skills, experience, and contact links in LLMs.txt format."
+    }
+  ]
+}

@@ -23,12 +23,24 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" />
+  </noscript>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://umair.dev/" />
+
+  <!-- Agentic Resource Discovery -->
+  <link rel="ard" href="https://umair.dev/.well-known/ard.json" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="alternate icon" type="image/x-icon" href="favicon.ico" />
 
+  <!-- Preload & Stylesheet -->
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -59,15 +71,15 @@
       <div class="grid-overlay"></div>
     </div>
     <div class="hero-content">
-      <p class="hero-greeting reveal">Hello, World! 👋</p>
-      <h1 class="hero-title reveal">
+      <p class="hero-greeting">Hello, World! 👋</p>
+      <h1 class="hero-title">
         Hi, I'm <span class="gradient-text">Umair</span>
       </h1>
-      <div class="hero-subtitle reveal">
-        <span class="typing-prefix">Senior </span><span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
+      <div class="hero-subtitle">
+        <span class="typing-prefix">Senior </span><span class="typing-text" id="typingText">Mobile Developer</span><span class="typing-cursor">|</span>
       </div>
-      <p class="hero-tagline reveal">Crafting exceptional mobile experiences with React Native</p>
-      <div class="hero-cta reveal">
+      <p class="hero-tagline">Crafting exceptional mobile experiences with React Native</p>
+      <div class="hero-cta">
         <a href="#experience" class="btn btn-primary">
           <span>View Experience</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -354,7 +366,6 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

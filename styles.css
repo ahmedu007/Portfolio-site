@@ -19,7 +19,7 @@
 
   --text-primary: #f5f5f5;
   --text-secondary: #a3a3a3;
-  --text-muted: #737373;
+  --text-muted: #9ca3af;
 
   --accent-blue: #52525b;
   --accent-indigo: #71717a;
@@ -1174,7 +1174,7 @@ img { max-width: 100%; display: block; }
 
 .footer-text {
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .back-to-top {
@@ -1210,6 +1210,18 @@ img { max-width: 100%; display: block; }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Above-the-fold hero elements render immediately for instant LCP & zero element render delay */
+.hero .reveal,
+.hero .hero-greeting,
+.hero .hero-title,
+.hero .hero-subtitle,
+.hero .hero-tagline,
+.hero .hero-cta {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 @keyframes fadeInUp {
