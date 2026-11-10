@@ -14,7 +14,7 @@ jobs:
       - name: Prepare public directory
         run: |
           mkdir -p public/.well-known
-          cp index.html styles.css script.js favicon.svg favicon.ico robots.txt sitemap.xml llms.txt ai-catalog.json public/ 2>/dev/null || true
+          cp index.html styles.css script.js favicon.svg favicon.ico robots.txt sitemap.xml llms.txt ai-catalog.json og-image.png public/ 2>/dev/null || true
           cp -r .well-known/* public/.well-known/ 2>/dev/null || true
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
